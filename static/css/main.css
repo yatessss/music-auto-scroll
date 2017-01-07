@@ -37,6 +37,7 @@ header >p {
 }
 .set-btn {
   position: fixed;
+  z-index: 999;
   transform: translate(0, 80px);
 }
 .set-btn .btn {
@@ -74,4 +75,21 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   position: absolute;
   left: 10px;
   width: 150px;
+}
+input.append-input:not([type]) {
+  border-bottom: 1px solid #26a69a;
+  background: #ffffff;
+  padding-left: 20px;
+}
+input.append-input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #2c2c2c;
+}
+input.append-input:-moz-placeholder, textarea:-moz-placeholder {
+  color: #2c2c2c;
+}
+input.append-input::-moz-placeholder, textarea::-moz-placeholder {
+  color: #2c2c2c;
+}
+input.append-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: #2c2c2c;
 }

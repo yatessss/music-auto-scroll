@@ -27,6 +27,10 @@ window.onload = function () {
     } else {
       $('.set-wrap').addClass('hidden-header')
       $('.set-btn').hide()
+      $('.append-input').hide()
+      index = 0
+      window.clearTimeout(timer)
+      handleShowBtn()
       $('body').animate({
         scrollTop: '0px'
       }, 800)
@@ -34,26 +38,16 @@ window.onload = function () {
     }
   });
 
-  //重新计时
-  $('#restart').on('click', function () {
-    window.clearTimeout(timer)
-    index = 0
-    $('body').animate({
-      scrollTop: '0px'
-    }, 800)
-    startScroll()
-  });
-
-
+  //点击选择文件按钮的事件
   $('#choose-files').on('click', function () {
     var el = document.getElementById("fileElem");
     if (el) {
       el.click();
     }
   })
-
+  //监听键盘事件
   $('body').on('keydown',function(e){
-    $('.set-btn').show()
+    showBtn()
   });
 
   $('#fileElem').on('change', function () {
@@ -79,12 +73,31 @@ window.onload = function () {
       }
     }
   })
-
-  $('#music-content-wrap').on('click', function (e) {
-    $('.set-btn').show()
+  //给页面绑定添加input框的事件
+  function handleAppendInput () {
+    $('#music-content-wrap').off().on('click', function (e) {
+      appendInput (e)
+    });
+  }
+  handleAppendInput()
+  //给页面绑定显示功能按钮的事件
+  function handleShowBtn () {
+    $('#music-content-wrap').off().on('click', function (e) {
+      showBtn()
+    })
+  }
+  //添加input输入框
+  function appendInput (e) {
     $('body').append("<input class='append-input' placeholder='输入到该位置时间' style='top:"+ (e.pageY -20) +"px' data-position='"+ e.pageY +"'>")
-  });
+  }
+  //点击页面功能按钮出现
+  function showBtn () {
+    $('.set-btn').show()
+    $('.append-input').show()
+    handleAppendInput()
+  }
 
+  //页面滚动时执行
   function startScroll () {
     var timeList = [] //需要滚动时间和位置的队列
     for (var i = 0,len=$('.append-input').length; i<len;i++) {
