@@ -80,10 +80,12 @@ window.onload = function () {
   function startScroll () {
     var timeList = [] //需要滚动时间和位置的队列
     for (var i = 0,len=$('.append-input').length; i<len;i++) {
-      timeList.push({
-        time: $($('.append-input')[i]).val(),
-        position: $('.append-input')[i].dataset.position
-      })
+      if ($($('.append-input')[i]).val() !== '') {
+        timeList.push({
+          time: $($('.append-input')[i]).val(),
+          position: $('.append-input')[i].dataset.position
+        })
+      }
     }
     function changePosition () {
       index++
