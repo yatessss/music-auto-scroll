@@ -34,6 +34,17 @@ window.onload = function () {
     }
   });
 
+  //重新计时
+  $('#restart').on('click', function () {
+    window.clearTimeout(timer)
+    index = 0
+    $('body').animate({
+      scrollTop: '0px'
+    }, 800)
+    startScroll()
+  });
+
+
   $('#choose-files').on('click', function () {
     var el = document.getElementById("fileElem");
     if (el) {
@@ -41,6 +52,9 @@ window.onload = function () {
     }
   })
 
+  $('body').on('keydown',function(e){
+    $('.set-btn').show()
+  });
 
   $('#fileElem').on('change', function () {
     var d = document.getElementById("music-content-wrap");
@@ -69,12 +83,6 @@ window.onload = function () {
   $('#music-content-wrap').on('click', function (e) {
     $('.set-btn').show()
     $('body').append("<input class='append-input' placeholder='输入到该位置时间' style='top:"+ (e.pageY -20) +"px' data-position='"+ e.pageY +"'>")
-  });
-
-  $('#music-content-wrap').mousemove(function(e) {
-    var xx=e.pageX;
-    var yy=e.pageY;
-    $('#aaa').text(xx + '---' + yy);
   });
 
   function startScroll () {
