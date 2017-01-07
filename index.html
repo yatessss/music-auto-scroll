@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>好近商户管理</title>
+  <meta name="format-detection" content="telephone=no, email=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="static/css/normalize.css">
+  <link rel="stylesheet" href="static/css/materialize.css">
+  <link rel="stylesheet" href="static/css/font-awesome.css">
+  <link rel="stylesheet" href="static/css/main.css">
+</head>
+<body>
+<!--标题-->
+<header>
+  <p>谱曲自动一遍过</p>
+</header>
+<!--设置栏-->
+<div class="set-wrap">
+    <div class="row">
+      <div class="file-field col m12 s12 input-field">
+        <div class="btn waves-light" id="choose-files">
+          <span>选择图片</span>
+        </div>
+        <input type="file" id="fileElem" multiple="" accept="image/*" style="display:none">
+        <div class="file-path-wrapper">
+          <input class="file-path validate" id="fileDis" type="text" placeholder="点击后耐心等待，可以选择多张图片">
+        </div>
+      </div>
+    </div>
+</div>
+<!--设置按钮-->
+<div class="set-btn">
+  <div>
+    <a class="waves-effect waves-light btn " id="set">设置</a>
+  </div>
+  <div>
+    <a class="waves-effect waves-light btn " id="start">开始</a>
+  </div>
+  <div>
+    <a class="waves-effect waves-light btn " id="clear">清空</a>
+  </div>
+</div>
+
+<!--图片-->
+<p id="aaa"></p>
+<div id="music-content-wrap">
+
+</div>
+
+<script src="static/jquery.js"></script>
+<script src="static/materialize.js"></script>
+<script src="static/main.js"></script>
+</body>
+</html>
