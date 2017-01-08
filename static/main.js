@@ -118,13 +118,13 @@ window.onload = function () {
         if(timeList.length > 1) {
           timeList.shift()
         }
-        console.log(timeList)
+        // console.log(timeList)
       }
-      console.log(index)
+      // console.log(index)
       timer = setTimeout(function(){changePosition()}, 1000)
     }
     changePosition()
-    console.log(timeList)
+    // console.log(timeList)
   }
 
 }
